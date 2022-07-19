@@ -1,0 +1,663 @@
+<html>
+
+<head>
+    <title>Portfolio</title>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background-color: #0E0F10;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .main-table {
+            width: 100%;
+            height: 100vh;
+            border-collapse: collapse;
+        }
+
+        .menu {
+            width: 10%;
+            background-color: #1D1D22;
+            padding: 20px;
+            vertical-align: top;
+            text-align: center;
+            position: fixed;
+            height: 100%;
+        }
+
+        .menu .logo {
+            border-bottom: 2px solid #25CA7F;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        .menu p {
+            margin-bottom: 30px;
+
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            color: #25CA7F;
+        }
+
+        .menu i {
+            font-size: 30px;
+        }
+
+        .content {
+            padding-left: 25%;
+            padding-right: 15%;
+            vertical-align: top;
+        }
+
+        .title {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .card-box {
+            display: flex;
+        }
+
+        /* .card-box-img{} */
+
+        .card-box-body {
+            margin-left: 20px;
+        }
+
+        #about-me {
+            min-height: 1000px;
+        }
+
+        #experience {
+            height: 1000px;
+        }
+
+        #experience a {
+            color: white;
+            text-decoration: none;
+        }
+
+        #experience a:hover {
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        #contact {
+            height: 1000px;
+        }
+
+        .service-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .service-container .service-item {
+            width: calc (33.33% - 32px);
+            margin: 16px;
+        }
+
+        .service-container .service-item .service-item-card {
+            background-color: #070708;
+            border: 1px solid black;
+            border-radius: 16px;
+            height: 300px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-container .service-item .service-item-card:hover {
+            border: 1px solid #25CA7F;
+        }
+
+        .service-container .service-item .service-item-card .service-item-card-icon {
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-container .service-item .service-item-card .service-item-card-icon:hover {
+            border: 1px solid #25CA7F;
+        }
+
+
+        .service-container .service-item .service-item-card .service-item-card-icon i {
+            font-size: 30px;
+        }
+
+        .service-container .service-item .service-item-card .service-item-card-title {
+            margin: 16px 0;
+        }
+
+        .service-container .service-item .service-item-card .service-item-card-description {
+            text-align: center;
+        }
+
+        .flexbox {
+            display: flex;
+            gap: 30px;
+        }
+
+        .flexbox-item {
+            width: 50%;
+        }
+
+        .card {
+            background-color: #070708;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .card:hover {
+            border: 1px solid #25CA7F;
+        }
+
+        .timeline-item {
+            padding-bottom: 30px;
+            border-left: 1px solid #25CA7F;
+            padding-left: 32px;
+            position: relative;
+        }
+
+        .timeline-item-period {
+            font-size: 12px;
+            color: #25CA7F;
+            margin: 8px 0;
+        }
+
+        .timeline-item-marker {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 8px;
+            left: -8px;
+        }
+
+        .timeline-item-marker-circle {
+            height: 15px;
+            width: 15px;
+            background: #25CA7F;
+            border-radius: 50%
+        }
+
+        .timeline-item-marker-line {
+            height: 1px;
+            width: 12px;
+            background: #25CA7F;
+        }
+
+        #about-me,
+        #experience,
+        #contact {
+            scroll-margin-top: 50px;
+        }
+
+        .progress-bar {
+            background-color: #0E0F10;
+            height: 8px;
+            border-radius: 8px;
+            position: relative;
+            margin-bottom: 60px;
+        }
+
+
+        .progress-bar-done {
+            background-color: #25CA7F;
+            height: 100%;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .progress-bar-title {
+            position: absolute;
+            top: -30px;
+        }
+
+        .progress-bar-done-text {
+            position: absolute;
+            top: -30px;
+            right: 0px;
+        }
+
+        .padding-top-60 {
+            padding-top: 60px;
+        }
+
+        .progress-bar-done-check {
+            height: 20px;
+            width: 20px;
+            border: 4px solid #25CA7F;
+            background-color: #0E0F10;
+            border-radius: 50%;
+            position: absolute;
+            right: 0px;
+            top: -6px;
+        }
+
+        .contact-item {
+            text-align: center;
+            flex-direction: column;
+            width: 30%;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .contact-item-icon {
+            font-size: 40px;
+            border: 1px solid #25CA7F;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-item-value a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-item-value a:hover {
+            text-decoration: underline;
+        }
+
+        h2.fill-animation {
+            position: relative;
+            color: #252839;
+            -webkit-text-stroke: 1px white;
+            text-transform: uppercase;
+            font-size: 60px;
+        }
+
+        h2.fill-animation::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            color: #01fe87;
+            -webkit-text-stroke: 0vw #383d52;
+            overflow: hidden;
+            animation: animate 6s linear forwards;
+        }
+
+        @keyframes animate {
+            0%, 10%{
+                width: 0;
+            }
+            70%, 90%, 100% {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <!--Fonts-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">-->
+    <script src="https://kit.fontawesome.com/4f5844a31b.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <table class="main-table">
+        <tr>
+            <td class="menu">
+                <div class="logo">
+                    <h2 class="fill-animation" data-text="CV">CV</h2>
+                </div>
+                <p>
+                    <a href="#about-me">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                </p>
+                <p>
+                    <a href="#experience">
+                        <i class="fa-solid fa-address-book"></i>
+                    </a>
+                </p>
+                <p>
+                    <a href="#contact">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                </p>
+
+
+            </td>
+            <td class="content">
+                <div id="about-me">
+                    <h1 class="title">About Me</h1>
+                    <div class="card-box card">
+                        <div class="card-box-img">
+                            <img src="./images/hayane1-modified.png">
+                        </div>
+                        <div class="card-box-body">
+                            <h3>Hayane Santos</h3>
+                            <p>Dublin, Ireland</p>
+                            <p>
+                                I am a frontend programmer, I have been studing Web Development in the past year.
+                            </p>
+                            <p>
+                                Objectives: My objective is to learn Web Development, I alredy study HTML, CSS and
+                                Bootstrap, and my
+                                next step is to study Java Script.
+                            </p>
+                            <p>
+                                I have some hobbies, the ones I like most is travelling and aprreciate the nature.
+                            </p>
+                        </div>
+                    </div>
+                    <h2 class="title">Areas of expertise</h2>
+                    <div class="service-container">
+                        <div class="service-item">
+                            <div class="service-item-card card">
+                                <div class="service-item-card-icon">
+                                    <i class="fa-solid fa-desktop"></i>
+                                </div>
+                                <div class="service-item-card-title">
+                                    <h3>Front End Developer</h3>
+                                </div>
+                                <div class="service-item-card-description">
+                                    <span>
+                                        HTML, CSS, Bootstrap...
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="service-item">
+                            <div class="service-item-card card">
+                                <div class="service-item-card-icon">
+                                    <i class="fa-solid fa-cogs"></i>
+                                </div>
+                                <div class="service-item-card-title">
+                                    <h3>Front End Developer</h3>
+                                </div>
+                                <div class="service-item-card-description">
+                                    <span>
+                                        HTML, CSS, Bootstrap...
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="service-item">
+                            <div class="service-item-card card">
+                                <div class="service-item-card-icon">
+                                    <i class="fa-solid fa-mobile-alt"></i>
+                                </div>
+                                <div class="service-item-card-title">
+                                    <h3>Front End Developer</h3>
+                                </div>
+                                <div class="service-item-card-description">
+                                    <span>
+                                        HTML, CSS, Bootstrap...
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="service-item">
+                            <div class="service-item-card card">
+                                <div class="service-item-card-icon">
+                                    <i class="fa-solid fa-database"></i>
+                                </div>
+                                <div class="service-item-card-title">
+                                    <h3>Front End Developer</h3>
+                                </div>
+                                <div class="service-item-card-description">
+                                    <span>
+                                        HTML, CSS, Bootstrap...
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="service-item">
+                            <div class="service-item-card card">
+                                <div class="service-item-card-icon">
+                                    <i class="fa-solid fa-cogs"></i>
+                                </div>
+                                <div class="service-item-card-title">
+                                    <h3>Front End Developer</h3>
+                                </div>
+                                <div class="service-item-card-description">
+                                    <span>
+                                        HTML, CSS, Bootstrap...
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="experience">
+                    <h1 class="title">Resume</h1>
+                    <div class="flexbox">
+                        <div class="flexbox-item">
+                            <h2 class="title">Experience</h2>
+
+                            <div class="card">
+                                <div class="timeline-item">
+                                    <div class="timeline-item-marker">
+                                        <div class="timeline-item-marker-circle">
+
+                                        </div>
+                                        <div class="timeline-item-marker-line">
+
+                                        </div>
+                                    </div>
+
+                                    <h3>Portfolio WebSite HTML and CSS</h3>
+                                    <p class="timeline-item-period"><i class="fa-solid fa-calendar-days"></i> May | 2022
+                                    </p>
+                                    <a href="https://github.com/HayaneSantos">My Github profile</a><br>
+                                    <p>I have learnt how to properly use the tools to get a web site done using HTML,
+                                        CSS and Bootstrap</p>
+                                </div>
+
+                                <div class="timeline-item">
+                                    <div class="timeline-item-marker">
+                                        <div class="timeline-item-marker-circle">
+
+                                        </div>
+                                        <div class="timeline-item-marker-line">
+
+                                        </div>
+                                    </div>
+                                    <h3>Portfolio WebSite HTML and CSS</h3>
+                                    <p class="timeline-item-period"><i class="fa-solid fa-calendar-days"></i> June |
+                                        2022</p>
+                                    <a href="https://github.com/HayaneSantos">My Github profile</a><br>
+                                    <p>I have learnt how to properly use the tools to get a web site done using HTML,
+                                        CSS and Bootstrap</p>
+                                </div>
+
+                                <div class="timeline-item">
+                                    <div class="timeline-item-marker">
+                                        <div class="timeline-item-marker-circle">
+
+                                        </div>
+                                        <div class="timeline-item-marker-line">
+
+                                        </div>
+                                    </div>
+                                    <h3>Jamille's Portfolio WebSite HTML and CSS and Bootstrap</h3>
+                                    <p class="timeline-item-period"><i class="fa-solid fa-calendar-days"></i> July |
+                                        2022</p>
+                                    <a href="https://github.com/HayaneSantos">My Github profile</a><br>
+                                    <p>I have learnt how to properly use the tools to get a web site done using HTML,
+                                        CSS and Bootstrap</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flexbox-item">
+                            <h2 class="title">Education</h2>
+                            <div class="card">
+                                <div class="timeline-item">
+                                    <div class="timeline-item-marker">
+                                        <div class="timeline-item-marker-circle">
+
+                                        </div>
+                                        <div class="timeline-item-marker-line">
+
+                                        </div>
+                                    </div>
+                                    <h3>HTML & CSS & Bootstrap</h3>
+                                    <p class="timeline-item-period"><i class="fa-solid fa-calendar-days"></i> 2022</p>
+                                    <p><b>
+                                            • W3 School<br>
+                                            • Carreira Desenvolvedor Youtube Chanel<br>
+                                            • The Complete 2022 Web Development Bootcamp
+                                        </b></p>
+                                    <p>
+                                        Through these tools above I have learned a lot and it has been my first step to
+                                        becoming a real programmer.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="title"> Skills</h2>
+                    <div class="card padding-top-60">
+                        <div class="progress-bar">
+                            <div class="progress-bar-title">
+                                <p>HTML</p>
+                            </div>
+                            <div class="progress-bar-done" style="width: 70%">
+                                <div class="progress-bar-done-text">
+                                    <p>70%</p>
+                                </div>
+                                <div class="progress-bar-done-check">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-bar-title">
+                                <p>CSS</p>
+                            </div>
+                            <div class="progress-bar-done" style="width: 50%">
+                                <div class="progress-bar-done-text">
+                                    <p>50%</p>
+                                </div>
+                                <div class="progress-bar-done-check">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="progress-bar">
+                            <div class="progress-bar-title">
+                                <p>Bootstrap</p>
+                            </div>
+                            <div class="progress-bar-done" style="width: 40%">
+                                <div class="progress-bar-done-text">
+                                    <p>40%</p>
+                                </div>
+                                <div class="progress-bar-done-check">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-bar-title">
+                                <p>JavaScript</p>
+                            </div>
+                            <div class="progress-bar-done" style="width: 20%">
+                                <div class="progress-bar-done-text">
+                                    <p>20%</p>
+                                </div>
+                                <div class="progress-bar-done-check">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="contact">
+                    <h1 class="title">Contact Me</h1>
+
+                    <div class="card flexbox">
+                        <div class="contact-item flexbox">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-paper-plane"></i>
+                            </div>
+                            <div class="contact-item-value">
+                                <a href="mailto:hayane.cristina@gmail.com">hayane.cristina@gmail.com</a>
+                            </div>
+                            <div class="contact-item-description">
+                                E-mail
+                            </div>
+                        </div>
+                        <div class="contact-item flexbox">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-paper-plane"></i>
+                            </div>
+                            <div class="contact-item-value">
+                                +353 0899812636
+                            </div>
+                            <div class="contact-item-description">
+                                Phone
+                            </div>
+                        </div>
+                        <div class="contact-item flexbox">
+                            <div class="contact-item-icon">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </div>
+                            <div class="contact-item-value">
+                                <a target="blank" href="https://www.linkedin.com/in/hayane-santos/">Hayane Santos</a>
+                            </div>
+                            <div class="contact-item-description">
+                                Linkedin
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+
+
+</body>
+
+</html>
